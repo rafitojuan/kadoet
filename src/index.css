@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Audiowide&display=swap');
+
+:root {
+  --retro-pink: #FF1493;
+  --retro-blue: #00BFFF;
+  --retro-green: #32CD32;
+  --retro-purple: #9932CC;
+  --retro-orange: #FF8C00;
+  --retro-cyan: #00FFFF;
+  --retro-dark: #0a0a0a;
+  --retro-darker: #050505;
+  --retro-glow: 0 0 20px currentColor;
+  --retro-glow-strong: 0 0 30px currentColor, 0 0 60px currentColor;
+  
+  font-family: 'Orbitron', 'Courier New', monospace;
+  line-height: 1.4;
+  font-weight: 400;
+  background: var(--retro-darker);
+  color: var(--retro-cyan);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a1a1a 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 255, 0.08) 2px,
+      rgba(0, 255, 255, 0.08) 4px
+    );
+  pointer-events: none;
+  z-index: 1000;
+  animation: scanlines 0.1s linear infinite;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 100px,
+      rgba(255, 20, 147, 0.03) 100px,
+      rgba(255, 20, 147, 0.03) 102px
+    );
+  pointer-events: none;
+  z-index: 999;
+  animation: vhs-noise 2s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(4px); }
+}
+
+@keyframes vhs-noise {
+  0% { opacity: 0.9; }
+  50% { opacity: 0.95; }
+  100% { opacity: 0.9; }
+}
+
+.retro-glow {
+  text-shadow: var(--retro-glow);
+}
+
+.retro-glow-strong {
+  text-shadow: var(--retro-glow-strong);
+}
+
+.retro-border {
+  border: 2px solid currentColor;
+  box-shadow: 
+    0 0 10px currentColor,
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.retro-button {
+  background: linear-gradient(45deg, var(--retro-dark), var(--retro-darker));
+  border: 2px solid var(--retro-pink);
+  color: var(--retro-pink);
+  text-shadow: 0 0 10px currentColor;
+  box-shadow: 
+    0 0 20px rgba(255, 20, 147, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.retro-button:hover {
+  box-shadow: 
+    0 0 30px rgba(255, 20, 147, 0.8),
+    inset 0 0 30px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.retro-grid {
+  background-image: 
+    linear-gradient(rgba(0, 191, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 191, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.synthwave-bg {
+  background: linear-gradient(
+    135deg,
+    #0a0a0a 0%,
+    #2d1b69 25%,
+    #11998e 50%,
+    #38ef7d 75%,
+    #ff1493 100%
+  );
+}
+
+.neon-text {
+  font-family: 'Audiowide', 'Orbitron', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.digital-font {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.retro-canvas {
+  position: relative;
+  border: 3px solid var(--retro-cyan);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.5),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.retro-canvas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 255, 0.05) 2px,
+      rgba(0, 255, 255, 0.05) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.retro-canvas::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 20, 147, 0.03) 2px,
+      rgba(255, 20, 147, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 2;
+  animation: retro-flicker 3s ease-in-out infinite;
+}
+
+@keyframes retro-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
